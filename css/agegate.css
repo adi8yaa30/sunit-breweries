@@ -1,0 +1,325 @@
+/* ==========================================================================
+   Age gate — full-screen, shown until the visitor confirms legal drinking age.
+   Visitors enter their date of birth. Visual language: About-style gold/ink
+   headline, site buttons, and the footer's Habibi wordmark rising out of the
+   gold gradient.
+   ========================================================================== */
+
+.agegate {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: none;
+  flex-direction: column;
+  background: var(--bg);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.show-agegate .agegate { display: flex; }
+
+.show-agegate,
+.show-agegate body {
+  overflow: hidden;
+}
+
+/* Hidden until the intro timeline reveals them (only when JS is running) */
+.js-ready .agegate [data-ag] { visibility: hidden; }
+
+/* Top bar — mirrors the nav */
+.agegate__top {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: var(--nav-h);
+  padding-inline: clamp(16px, 4vw, 56px) var(--gutter);
+}
+
+.agegate__tag {
+  display: inline-grid;
+  place-items: center;
+  min-width: 52px;
+  height: 30px;
+  padding-inline: 12px;
+  border: 1px solid var(--line-gold-strong);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+/* Question */
+.agegate__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--gutter) clamp(8px, 3vh, 32px);
+  text-align: center;
+}
+
+.agegate__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.agegate__eyebrow .dot {
+  width: 9px;
+  height: 9px;
+}
+
+.agegate__title {
+  margin-top: clamp(18px, 3vh, 28px);
+  font-size: clamp(2.3rem, 0.9rem + 5vw, 5.25rem);
+  line-height: 0.93;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  outline: none;
+}
+
+.agegate__title > div {
+  padding-block: 0.08em;
+  margin-block: -0.08em;
+}
+
+.agegate__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.agegate__panel[hidden] { display: none; }
+
+.agegate__desc {
+  max-width: 32em;
+  text-wrap: balance;
+  margin-top: clamp(18px, 3vh, 30px);
+  color: var(--ink-muted);
+  font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.35rem);
+  line-height: 1.35;
+}
+
+/* Date of birth */
+.agegate__form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 14px 18px;
+  margin-top: clamp(24px, 4vh, 40px);
+}
+
+.agegate__dob {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.agegate__field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.agegate__label {
+  color: var(--ink-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.agegate__input {
+  width: 76px;
+  height: 58px;
+  padding: 0 8px;
+  background: transparent;
+  border: 1px solid var(--line-gold-strong);
+  border-radius: 1px;
+  color: var(--ink);
+  font-size: 1.35rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  text-align: center;
+  caret-color: var(--accent);
+  transition: border-color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+}
+
+.agegate__field--year .agegate__input { width: 108px; }
+
+.agegate__input::placeholder {
+  color: var(--ink-muted);
+  opacity: 0.4;
+}
+
+.agegate__input:hover { background: rgba(184, 121, 32, 0.04); }
+
+.agegate__input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(184, 121, 32, 0.06);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.agegate__input[aria-invalid="true"] {
+  border-color: var(--error);
+  box-shadow: 0 0 0 1px var(--error);
+}
+
+.agegate__sep {
+  align-self: flex-end;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  color: var(--accent-soft);
+  font-size: 1.5rem;
+}
+
+.agegate__submit { min-width: 160px; }
+
+.agegate__error {
+  min-height: 1.4em;
+  margin-top: 14px;
+  color: var(--error);
+  font-size: 0.9375rem;
+}
+
+/* Remember me */
+.agegate__remember {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  color: var(--ink-muted);
+  font-size: 0.875rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.agegate__remember input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.agegate__box {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--line-gold-strong);
+  border-radius: 4px;
+  transition: background-color var(--dur-micro) var(--ease-out);
+}
+
+.agegate__box::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--bg);
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.35s var(--ease-out);
+}
+
+.agegate__remember input:checked + .agegate__box { background: var(--accent); }
+.agegate__remember input:checked + .agegate__box::after { transform: rotate(45deg) scale(1); }
+.agegate__remember input:focus-visible + .agegate__box { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Denied state */
+.agegate__back {
+  position: relative;
+  margin-top: 26px;
+  padding: 6px 0;
+  color: var(--accent);
+  font-size: 0.9375rem;
+}
+
+.agegate__back::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left center;
+  transition: transform var(--dur-micro) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .agegate__back:hover::after { transform: scaleX(0); transform-origin: right center; }
+}
+
+/* Wordmark rising out of the gold gradient — same treatment as the footer */
+.agegate__brand {
+  position: relative;
+  flex: none;
+}
+
+.agegate__glow {
+  position: absolute;
+  inset: -40% -10% -20%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.agegate__glow img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.agegate__glow::before {
+  content: "";
+  position: absolute;
+  inset: 30% 0 0;
+  background: linear-gradient(180deg, rgba(214, 160, 90, 0) 0%, rgba(214, 160, 90, 0.85) 45%, #d6a45f 100%);
+  filter: blur(30px);
+}
+
+.agegate__wordmark {
+  display: block;
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 12.4vw, 11.6rem);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  padding-top: 0.1em;
+  margin-bottom: -0.16em; /* bleed off the bottom edge */
+}
+
+.agegate__wordmark > div {
+  padding-top: 0.12em;
+  margin-top: -0.12em;
+}
+
+@media (max-width: 767px) {
+  .agegate__form { flex-direction: column; align-items: stretch; width: 100%; max-width: 340px; }
+  .agegate__dob { justify-content: center; gap: 8px; }
+  .agegate__input { width: 64px; }
+  .agegate__field--year .agegate__input { width: 96px; }
+  .agegate__submit { width: 100%; }
+  .agegate__tag { height: 28px; }
+}
+
+@media (max-height: 640px) {
+  .agegate__wordmark { font-size: clamp(2.6rem, 9vw, 7rem); }
+}

@@ -1,0 +1,627 @@
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+html {
+  background: var(--bg);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* !important throughout: component rules (e.g. `.chips legend { width: 100% }`)
+   must never re-size a visually hidden element, or it causes horizontal scroll. */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  float: none !important;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: var(--bg);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+.accent { color: var(--accent); }
+
+.br-lg { display: none; }
+@media (min-width: 1024px) { .br-lg { display: inline; } }
+.gold-soft { color: var(--accent-soft); }
+
+/* Display headings */
+.display {
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
+  font-weight: 500;
+}
+
+/* ScrollSmoother shell */
+/* clip (not hidden) so CSS sticky keeps working when the smoother is off */
+#smooth-wrapper {
+  overflow-x: clip;
+}
+
+/* ==========================================================================
+   No-FOUC: elements JS will animate are hidden only once JS confirms it runs.
+   ========================================================================== */
+
+.js-ready [data-reveal],
+.js-ready [data-split] {
+  visibility: hidden;
+}
+
+/* SplitText line masks: pad so descenders and accents aren't clipped */
+[data-split] > div,
+.why__num > div,
+.why__heading > div,
+.mobile-menu__links a > div {
+  padding-block: 0.08em;
+  margin-block: -0.08em;
+}
+
+/* ==========================================================================
+   Label roll (nav links + buttons) — CSS driven so touch keeps working.
+   ========================================================================== */
+
+.roll {
+  display: inline-flex;
+  height: 1.25em;
+  line-height: 1.25;
+  align-items: flex-start; /* don't stretch the track to one line; it must stay two lines tall */
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.roll__track {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: transform var(--dur-micro) var(--ease-out);
+}
+
+.roll__track > span {
+  display: block;
+  flex-shrink: 0;
+  line-height: 1.25;
+}
+
+@media (hover: hover) {
+  a:hover .roll__track,
+  button:hover .roll__track,
+  a:focus-visible .roll__track,
+  button:focus-visible .roll__track {
+    transform: translateY(-50%);
+  }
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+  --btn-bg: var(--accent-soft);
+  --btn-fg: var(--ink);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.75rem 2rem;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  border-radius: 1px;
+  transition: background-color var(--dur-micro) var(--ease-out);
+  will-change: auto;
+}
+
+.btn--lg {
+  min-width: 222px;
+  min-height: 58px;
+  font-size: 1rem;
+}
+
+.btn--solid {
+  --btn-bg: var(--accent);
+  --btn-fg: var(--bg);
+  font-size: var(--fs-nav);
+  font-weight: 400;
+  padding: 0.5rem 1.4rem;
+  min-height: 40px;
+}
+
+@media (hover: hover) {
+  .btn:hover { --btn-bg: #d8b37d; }
+  .btn--solid:hover { --btn-bg: #a86c19; }
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--nav-h);
+  transition: background-color 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+
+.nav.is-scrolled {
+  background: rgba(245, 241, 233, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.nav__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: none;
+  padding-left: clamp(16px, 4vw, 56px);
+  padding-right: clamp(8px, 0.6vw, 8px);
+}
+
+.nav__logo {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 1.28rem;
+  line-height: 0.97;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.nav__logo span { display: block; }
+
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 48px);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.1vw, 30px);
+}
+
+.nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-muted);
+  font-size: var(--fs-nav);
+  padding-block: 8px;
+}
+
+.nav__link[aria-current="page"] {
+  color: var(--ink);
+}
+
+.nav__chev {
+  width: 11px;
+  height: 7px;
+  color: var(--accent);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.nav__dropdown {
+  position: relative;
+}
+
+.nav__dropdown.is-open .nav__chev {
+  transform: rotate(180deg);
+}
+
+.nav__menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: -18px;
+  min-width: 250px;
+  padding: 10px;
+  background: var(--bg);
+  border: 1px solid var(--line-gold);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 40px -20px rgba(17, 17, 17, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.35s var(--ease-out), transform 0.35s var(--ease-out), visibility 0s 0.35s;
+}
+
+.nav__dropdown.is-open .nav__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+}
+
+.nav__menu a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav__menu a small {
+  color: var(--accent);
+  font-size: 0.75rem;
+}
+
+.nav__menu a:hover,
+.nav__menu a:focus-visible {
+  background: rgba(184, 121, 32, 0.08);
+  color: var(--ink);
+}
+
+.nav__burger {
+  display: none;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nav__burger span {
+  display: block;
+  width: 26px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.5s var(--ease-out);
+}
+
+.nav.menu-open .nav__burger span:first-child { transform: translateY(3.75px) rotate(45deg); }
+.nav.menu-open .nav__burger span:last-child  { transform: translateY(-3.75px) rotate(-45deg); }
+
+/* Mobile menu */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--nav-h) + 32px) var(--gutter) 40px;
+  background: var(--bg);
+  visibility: hidden;
+  clip-path: inset(0 0 100% 0);
+}
+
+.mobile-menu__links a {
+  display: block;
+  padding-block: 6px;
+  font-size: clamp(2rem, 8vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-display);
+}
+
+.mobile-menu__links .sub a {
+  font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+  color: var(--ink-muted);
+  padding-left: 4px;
+}
+
+.mobile-menu__links .sub {
+  padding: 4px 0 10px;
+}
+
+.mobile-menu .btn { align-self: flex-start; }
+
+@media (max-width: 1180px) {
+  .nav__links,
+  .nav__right > .btn { display: none; }
+  .nav__burger { display: inline-flex; }
+  .nav__inner { padding-right: var(--gutter); }
+}
+
+/* ==========================================================================
+   Preloader
+   ========================================================================== */
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  background: var(--bg);
+  display: none;
+}
+
+.show-preloader .preloader { display: block; }
+
+.preloader__mark {
+  position: absolute;
+  top: var(--gutter);
+  left: var(--gutter);
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+
+.preloader__count {
+  position: absolute;
+  right: var(--gutter);
+  bottom: calc(var(--gutter) + 12px);
+  font-size: clamp(5rem, 15vw, 13rem);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.preloader__line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer {
+  position: relative;
+  padding-top: clamp(48px, 6vw, 88px);
+  overflow: hidden;
+}
+
+.footer__panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 32px;
+  align-items: start;
+  width: min(1272px, calc(100% - var(--gutter) * 2));
+  margin-inline: auto;
+  padding: 28px 36px;
+  border-radius: 8px;
+}
+
+.footer__panel .line-box { border-radius: 8px; }
+
+.footer__col {
+  text-align: center;
+  padding-top: 8px;
+}
+
+.footer__col h2 {
+  color: var(--accent-soft);
+  font-size: var(--fs-small);
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.footer__col li + li { margin-top: 4px; }
+
+.footer__col a {
+  position: relative;
+  display: inline-block;
+  padding-block: 3px;
+  color: var(--accent);
+  font-size: var(--fs-small);
+}
+
+.footer__col a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--dur-micro) var(--ease-out);
+}
+
+.footer__col a:hover::after,
+.footer__col a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.footer__map {
+  position: relative;
+  min-width: 0;
+  height: clamp(160px, 11.4vw, 164px);
+  background: #fff;
+  overflow: hidden;
+}
+
+.footer__map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.35) sepia(0.15);
+}
+
+.footer__brand {
+  position: relative;
+  margin-top: clamp(8px, 1.6vw, 24px);
+  padding-top: clamp(16px, 2vw, 32px);
+}
+
+.footer__glow {
+  position: absolute;
+  inset: 0 -10% -10% -10%;
+  pointer-events: none;
+}
+
+.footer__glow img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.footer__glow::before {
+  content: "";
+  position: absolute;
+  inset: 22% 0 0;
+  background: linear-gradient(180deg, rgba(214, 160, 90, 0) 0%, rgba(214, 160, 90, 0.85) 40%, #d6a45f 100%);
+  filter: blur(30px);
+}
+
+.footer__wordmark {
+  position: relative;
+  display: block;
+  text-align: center;
+  color: #fff;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(3rem, 12.4vw, 11.6rem);
+  line-height: 1;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.1em;
+}
+
+.footer__wordmark > div {
+  padding-top: 0.12em;
+  margin-top: -0.12em;
+}
+
+@media (max-width: 900px) {
+  .footer__panel {
+    grid-template-columns: 1fr 1fr;
+    padding: 28px 20px;
+  }
+  .footer__map {
+    grid-column: 1 / -1;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ==========================================================================
+   Line-drawn boxes: four hairlines JS can draw in.
+   ========================================================================== */
+
+.line-box {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: var(--radius);
+  border: 1px solid var(--line-gold-strong);
+}
+
+.line-box.is-drawable {
+  border-color: transparent;
+}
+
+.line-box:not(.is-drawable) > * {
+  display: none;
+}
+
+.line-box > i {
+  position: absolute;
+  display: block;
+  background: var(--line-gold-strong);
+}
+
+.line-box > i:nth-child(1) { top: 0; left: var(--radius); right: var(--radius); height: 1px; transform-origin: left center; }
+.line-box > i:nth-child(2) { left: 0; top: var(--radius); bottom: var(--radius); width: 1px; transform-origin: center top; }
+.line-box > i:nth-child(3) { right: 0; top: var(--radius); bottom: var(--radius); width: 1px; transform-origin: center top; }
+.line-box > i:nth-child(4) { bottom: 0; left: var(--radius); right: var(--radius); height: 1px; transform-origin: left center; }
+
+/* Corners are drawn by a rounded frame that fades in with the lines */
+.line-box > b {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid var(--line-gold-strong);
+  -webkit-mask: linear-gradient(#000 0 0) top left / var(--radius) var(--radius) no-repeat,
+    linear-gradient(#000 0 0) top right / var(--radius) var(--radius) no-repeat,
+    linear-gradient(#000 0 0) bottom left / var(--radius) var(--radius) no-repeat,
+    linear-gradient(#000 0 0) bottom right / var(--radius) var(--radius) no-repeat;
+  mask: linear-gradient(#000 0 0) top left / var(--radius) var(--radius) no-repeat,
+    linear-gradient(#000 0 0) top right / var(--radius) var(--radius) no-repeat,
+    linear-gradient(#000 0 0) bottom left / var(--radius) var(--radius) no-repeat,
+    linear-gradient(#000 0 0) bottom right / var(--radius) var(--radius) no-repeat;
+}
+
+/* ==========================================================================
+   Gold dot (cards)
+   ========================================================================== */
+
+.dot {
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 40%, #c98a2d 0%, var(--accent) 60%, #a86a14 100%);
+  box-shadow: 0 1px 2px rgba(120, 70, 10, 0.3);
+}
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Careers — Sunit Breweries</title>
+  <meta name="description" content="Careers at Sunit Breweries — join the team running the North East’s only large-scale brewery, on German-engineered lines and an FSSC 22000 certified process.">
+  <meta name="theme-color" content="#F5F1E9">
+
+  <script>
+    (function (d) {
+      var h = d.documentElement;
+      h.classList.add("js-ready");
+      // Age gate: show unless verified this session, or remembered (not expired).
+      var ageOk = false;
+      try {
+        ageOk = !!sessionStorage.getItem("sb-age-ok") || +(localStorage.getItem("sb-age-ok") || 0) > Date.now();
+      } catch (e) {}
+      if (!ageOk) h.classList.add("show-agegate");
+      setTimeout(function () {
+        if (!window.__brewBooted) h.classList.remove("js-ready");
+        if (!window.__ageGateReady) h.classList.remove("show-agegate");
+      }, 4000);
+    })(document);
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Habibi&family=Instrument+Sans:wght@400;500;600&display=swap">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/agegate.css">
+</head>
+<body class="page-careers">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Age gate (shown until legal drinking age is confirmed) -->
+  <div class="agegate" role="dialog" aria-modal="true" aria-labelledby="ag-title" aria-describedby="ag-desc">
+    <header class="agegate__top" data-ag>
+      <span class="agegate__tag" aria-hidden="true">21+</span>
+    </header>
+
+    <div class="agegate__body" data-ag>
+      <p class="agegate__eyebrow"><span class="dot" aria-hidden="true"></span>Age verification</p>
+      <h2 class="agegate__title" id="ag-title" tabindex="-1"><span class="gold-soft">ARE YOU OF</span><br>LEGAL DRINKING AGE?</h2>
+
+      <div class="agegate__panel" data-ag-panel="ask">
+        <p class="agegate__desc" id="ag-desc">Enter your date of birth. You must be 21 or older to enter this site.</p>
+        <form class="agegate__form" data-ag-form novalidate>
+          <fieldset class="agegate__dob">
+            <legend class="visually-hidden">Date of birth</legend>
+            <label class="agegate__field">
+              <span class="agegate__label">Day</span>
+              <input class="agegate__input" name="day" inputmode="numeric" autocomplete="bday-day" placeholder="DD" maxlength="2" pattern="[0-9]*" required>
+            </label>
+            <span class="agegate__sep" aria-hidden="true">/</span>
+            <label class="agegate__field">
+              <span class="agegate__label">Month</span>
+              <input class="agegate__input" name="month" inputmode="numeric" autocomplete="bday-month" placeholder="MM" maxlength="2" pattern="[0-9]*" required>
+            </label>
+            <span class="agegate__sep" aria-hidden="true">/</span>
+            <label class="agegate__field agegate__field--year">
+              <span class="agegate__label">Year</span>
+              <input class="agegate__input" name="year" inputmode="numeric" autocomplete="bday-year" placeholder="YYYY" maxlength="4" pattern="[0-9]*" required>
+            </label>
+          </fieldset>
+          <button class="btn btn--lg agegate__submit" type="submit" data-magnetic><span class="roll"><span class="roll__track"><span>Enter</span><span aria-hidden="true">Enter</span></span></span></button>
+        </form>
+        <p class="agegate__error" data-ag-error role="alert" aria-live="assertive"></p>
+        <label class="agegate__remember"><input type="checkbox"><span class="agegate__box" aria-hidden="true"></span>Remember me on this device for 30 days</label>
+      </div>
+
+      <div class="agegate__panel" data-ag-panel="denied" hidden>
+        <p class="agegate__desc" role="status">Sorry — you need to be of legal drinking age to visit Sunit Breweries.</p>
+        <button class="agegate__back" type="button" data-ag-back>I made a mistake — go back</button>
+      </div>
+    </div>
+
+
+    <div class="agegate__brand" data-ag aria-hidden="true">
+      <div class="agegate__glow"><img src="assets/img/footer/footer-gradient.svg" alt="" width="1728" height="361"></div>
+      <p class="agegate__wordmark">Sunit Breweries</p>
+    </div>
+  </div>
+
+
+  <!-- Navigation -->
+  <header class="nav" data-nav>
+    <div class="container nav__inner" data-reveal>
+      <a class="nav__logo" href="index.html" aria-label="Sunit Breweries — home"><span>Sunit</span><span>Breweries</span></a>
+
+      <div class="nav__right">
+        <nav aria-label="Primary">
+          <ul class="nav__links">
+            <li><a class="nav__link" href="index.html"><span class="roll"><span class="roll__track"><span>Home</span><span aria-hidden="true">Home</span></span></span></a></li>
+            <li><a class="nav__link" href="index.html#about"><span class="roll"><span class="roll__track"><span>About Us</span><span aria-hidden="true">About Us</span></span></span></a></li>
+            <li><a class="nav__link" href="index.html#doje"><span class="roll"><span class="roll__track"><span>DOJE</span><span aria-hidden="true">DOJE</span></span></span></a></li>
+            <li class="nav__dropdown" data-dropdown>
+              <button class="nav__link" type="button" aria-expanded="false" aria-controls="cm-menu">
+                <span class="roll"><span class="roll__track"><span>Contract Manufacturing</span><span aria-hidden="true">Contract Manufacturing</span></span></span>
+                <svg class="nav__chev" viewBox="0 0 11 7" aria-hidden="true"><path d="M1 1l4.5 4.5L10 1" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+              </button>
+              <ul class="nav__menu" id="cm-menu">
+                <li><a href="contract-manufacturing.html">All partners <small>Overview</small></a></li>
+                <li><a href="contract-manufacturing.html#devans">DeVans Breweries <small>01</small></a></li>
+                <li><a href="contract-manufacturing.html#sona">Sona Beverages <small>02</small></a></li>
+                <li><a href="contract-manufacturing.html#ubl">United Breweries <small>03</small></a></li>
+              </ul>
+            </li>
+            <li><a class="nav__link" href="careers.html" aria-current="page"><span class="roll"><span class="roll__track"><span>Careers</span><span aria-hidden="true">Careers</span></span></span></a></li>
+            <li><a class="nav__link" href="contact.html"><span class="roll"><span class="roll__track"><span>Contact Us</span><span aria-hidden="true">Contact Us</span></span></span></a></li>
+          </ul>
+        </nav>
+        <a class="btn btn--solid" href="contact.html?topic=partnership" data-magnetic><span class="roll"><span class="roll__track"><span>Partner With Us</span><span aria-hidden="true">Partner With Us</span></span></span></a>
+        <button class="nav__burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+    <ul class="mobile-menu__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#doje">DOJE</a></li>
+      <li><a href="contract-manufacturing.html">Contract Manufacturing</a>
+        <ul class="sub">
+          <li><a href="contract-manufacturing.html#devans">DeVans Breweries</a></li>
+          <li><a href="contract-manufacturing.html#sona">Sona Beverages</a></li>
+          <li><a href="contract-manufacturing.html#ubl">United Breweries</a></li>
+        </ul>
+      </li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <a class="btn btn--solid" href="contact.html?topic=partnership">Partner With Us</a>
+  </nav>
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main id="main">
+
+        <header class="page-hero">
+          <h1 class="page-hero__title display" data-split>BUILT BY PEOPLE.<br>READY TO GROW.</h1>
+          <p class="page-hero__aside" data-reveal>Join the team running the North East’s only large-scale brewery — German lines, a certified process, and room to grow.</p>
+        </header>
+
+        <!-- PLACEHOLDER IMAGERY — to use a real photo, replace the <div class="ph">…</div> inside .media__inner with <img src="assets/img/…" alt="…" loading="lazy">. Sizes on each label are 2× display size. -->
+        <figure class="media media--band" data-media>
+            <div class="media__inner">
+              <div class="ph" role="img" aria-label="Image placeholder: Brewhouse team at work — wide, natural light">
+                <div class="ph__label"><svg class="ph__icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="3" y="8" width="28" height="20" rx="3" stroke="currentColor" stroke-width="1.3"/><path d="M12 8l2.2-3.5h5.6L22 8" stroke="currentColor" stroke-width="1.3"/><circle cx="17" cy="18" r="5.5" stroke="currentColor" stroke-width="1.3"/></svg><span class="ph__eyebrow"><span class="dot" aria-hidden="true"></span>Image placeholder</span><span class="ph__title">Brewhouse team at work — wide, natural light</span><span class="ph__spec">21:9 · 2380 × 1020 px</span></div>
+              </div>
+            </div>
+          </figure>
+
+        <!-- Why work with us -->
+        <section class="careers-why page-wrap" aria-labelledby="why-title">
+          <div class="section-head">
+            <h2 class="section-head__title" id="why-title" data-split>Why work<br><span class="accent">with us</span></h2>
+            <p class="section-head__label" data-reveal>LIFE AT SUNIT</p>
+          </div>
+          <div class="perks">
+            <article class="card" data-card>
+              <div class="line-box"><i></i><i></i><i></i><i></i><b></b></div>
+              <span class="dot card__dot" aria-hidden="true"></span>
+              <p class="card__eyebrow">01</p>
+              <h3 class="card__title">World-class machinery</h3>
+              <p class="card__body">Work on German-engineered KHS bottling and canning lines — the same standard India’s biggest brands run in their own plants.</p>
+            </article>
+            <article class="card" data-card>
+              <div class="line-box"><i></i><i></i><i></i><i></i><b></b></div>
+              <span class="dot card__dot" aria-hidden="true"></span>
+              <p class="card__eyebrow">02</p>
+              <h3 class="card__title">A certified process</h3>
+              <p class="card__body">FSSC 22000 v6 across the plant. Every batch documented, every checkpoint logged — you learn to brew to a standard.</p>
+            </article>
+            <article class="card" data-card>
+              <div class="line-box"><i></i><i></i><i></i><i></i><b></b></div>
+              <span class="dot card__dot" aria-hidden="true"></span>
+              <p class="card__eyebrow">03</p>
+              <h3 class="card__title">Built new, in 2023</h3>
+              <p class="card__body">A plant specified from a blank sheet. Modern systems, clean processes, nothing inherited.</p>
+            </article>
+            <article class="card" data-card>
+              <div class="line-box"><i></i><i></i><i></i><i></i><b></b></div>
+              <span class="dot card__dot" aria-hidden="true"></span>
+              <p class="card__eyebrow">04</p>
+              <h3 class="card__title">Rooted in Assam</h3>
+              <p class="card__body">The only large-scale brewery in the North East — building skilled careers close to home.</p>
+            </article>
+          </div>
+
+          <div class="gallery" aria-label="Life at Sunit">
+            <figure class="media" data-media>
+            <div class="media__inner">
+              <div class="ph" role="img" aria-label="Image placeholder: Packaging line operators on the KHS line">
+                <div class="ph__label"><svg class="ph__icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="3" y="8" width="28" height="20" rx="3" stroke="currentColor" stroke-width="1.3"/><path d="M12 8l2.2-3.5h5.6L22 8" stroke="currentColor" stroke-width="1.3"/><circle cx="17" cy="18" r="5.5" stroke="currentColor" stroke-width="1.3"/></svg><span class="ph__eyebrow"><span class="dot" aria-hidden="true"></span>Image placeholder</span><span class="ph__title">Packaging line operators on the KHS line</span><span class="ph__spec">Tall · 1360 × 1440 px</span></div>
+              </div>
+            </div>
+          </figure>
+            <figure class="media" data-media>
+            <div class="media__inner">
+              <div class="ph" role="img" aria-label="Image placeholder: Quality lab — sampling a batch">
+                <div class="ph__label"><svg class="ph__icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="3" y="8" width="28" height="20" rx="3" stroke="currentColor" stroke-width="1.3"/><path d="M12 8l2.2-3.5h5.6L22 8" stroke="currentColor" stroke-width="1.3"/><circle cx="17" cy="18" r="5.5" stroke="currentColor" stroke-width="1.3"/></svg><span class="ph__eyebrow"><span class="dot" aria-hidden="true"></span>Image placeholder</span><span class="ph__title">Quality lab — sampling a batch</span><span class="ph__spec">4:3 · 1180 × 700 px</span></div>
+              </div>
+            </div>
+          </figure>
+            <figure class="media" data-media>
+            <div class="media__inner">
+              <div class="ph" role="img" aria-label="Image placeholder: Shift handover on the brewhouse floor">
+                <div class="ph__label"><svg class="ph__icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="3" y="8" width="28" height="20" rx="3" stroke="currentColor" stroke-width="1.3"/><path d="M12 8l2.2-3.5h5.6L22 8" stroke="currentColor" stroke-width="1.3"/><circle cx="17" cy="18" r="5.5" stroke="currentColor" stroke-width="1.3"/></svg><span class="ph__eyebrow"><span class="dot" aria-hidden="true"></span>Image placeholder</span><span class="ph__title">Shift handover on the brewhouse floor</span><span class="ph__spec">4:3 · 1180 × 700 px</span></div>
+              </div>
+            </div>
+          </figure>
+          </div>
+        </section>
+
+        <!-- Open roles -->
+        <section class="roles page-wrap" id="open-roles" aria-labelledby="roles-title">
+          <div class="section-head">
+            <h2 class="section-head__title" id="roles-title" data-split>Open roles</h2>
+            <p class="section-head__label" data-reveal><span data-role-count>5</span> POSITIONS</p>
+          </div>
+
+          <fieldset class="chips roles__filters" data-reveal>
+            <legend class="visually-hidden">Filter by team</legend>
+            <label class="chip"><input type="radio" name="dept" value="all" checked><span>All teams</span></label>
+            <label class="chip"><input type="radio" name="dept" value="brewing"><span>Brewing</span></label>
+            <label class="chip"><input type="radio" name="dept" value="quality"><span>Quality</span></label>
+            <label class="chip"><input type="radio" name="dept" value="packaging"><span>Packaging</span></label>
+            <label class="chip"><input type="radio" name="dept" value="engineering"><span>Engineering</span></label>
+            <label class="chip"><input type="radio" name="dept" value="logistics"><span>Logistics</span></label>
+          </fieldset>
+
+          <!--
+            PLACEHOLDER ROLES — sample listings for layout only. Replace with real
+            openings. Each role is one <article class="role">; data-dept must match
+            a filter value above, and data-title feeds the application form.
+          -->
+          <div class="roles__list" data-roles>
+            <article class="role" data-dept="brewing" data-title="Shift Brewer">
+              <h3>
+                <button class="role__head" type="button" aria-expanded="false" aria-controls="role-1">
+                  <span class="role__num">01</span>
+                  <span class="role__title">Shift Brewer</span>
+                  <span class="role__meta-row"><span class="role__dept">Brewing</span><span class="role__meta">Sonitpur, Assam · Full-time</span></span>
+                  <span class="role__toggle" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="role__panel" id="role-1"><div class="role__panel-inner"><div class="role__content">
+                <p class="role__summary">Run brewhouse operations on KHS-specified equipment — milling, mashing and boiling — and log every batch to spec.</p>
+                <ul class="role__points">
+                  <li>Diploma or degree in brewing, food technology or chemical engineering</li>
+                  <li>2+ years in a brewery or beverage plant</li>
+                  <li>Comfortable working rotating shifts</li>
+                </ul>
+                <a class="btn role__apply" href="#apply" data-apply="Shift Brewer" data-magnetic><span class="roll"><span class="roll__track"><span>Apply for this role</span><span aria-hidden="true">Apply for this role</span></span></span></a>
+              </div></div></div>
+            </article>
+
+            <article class="role" data-dept="quality" data-title="Quality Assurance Executive">
+              <h3>
+                <button class="role__head" type="button" aria-expanded="false" aria-controls="role-2">
+                  <span class="role__num">02</span>
+                  <span class="role__title">Quality Assurance Executive</span>
+                  <span class="role__meta-row"><span class="role__dept">Quality</span><span class="role__meta">Sonitpur, Assam · Full-time</span></span>
+                  <span class="role__toggle" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="role__panel" id="role-2"><div class="role__panel-inner"><div class="role__content">
+                <p class="role__summary">Own the checkpoints between stages under FSSC 22000 v6 — sampling, lab analysis and batch documentation.</p>
+                <ul class="role__points">
+                  <li>B.Sc or M.Sc in microbiology, food science or chemistry</li>
+                  <li>Working knowledge of FSSC 22000 / HACCP</li>
+                  <li>A sharp eye for documentation</li>
+                </ul>
+                <a class="btn role__apply" href="#apply" data-apply="Quality Assurance Executive" data-magnetic><span class="roll"><span class="roll__track"><span>Apply for this role</span><span aria-hidden="true">Apply for this role</span></span></span></a>
+              </div></div></div>
+            </article>
+
+            <article class="role" data-dept="packaging" data-title="Packaging Line Operator">
+              <h3>
+                <button class="role__head" type="button" aria-expanded="false" aria-controls="role-3">
+                  <span class="role__num">03</span>
+                  <span class="role__title">Packaging Line Operator</span>
+                  <span class="role__meta-row"><span class="role__dept">Packaging</span><span class="role__meta">Sonitpur, Assam · Full-time</span></span>
+                  <span class="role__toggle" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="role__panel" id="role-3"><div class="role__panel-inner"><div class="role__content">
+                <p class="role__summary">Run and change over German bottling and canning lines for 650ml bottles and 500ml cans.</p>
+                <ul class="role__points">
+                  <li>ITI or diploma in a technical trade</li>
+                  <li>Experience on filling or packaging lines</li>
+                  <li>Safety-first working habits</li>
+                </ul>
+                <a class="btn role__apply" href="#apply" data-apply="Packaging Line Operator" data-magnetic><span class="roll"><span class="roll__track"><span>Apply for this role</span><span aria-hidden="true">Apply for this role</span></span></span></a>
+              </div></div></div>
+            </article>
+
+            <article class="role" data-dept="engineering" data-title="Maintenance Engineer (Electrical)">
+              <h3>
+                <button class="role__head" type="button" aria-expanded="false" aria-controls="role-4">
+                  <span class="role__num">04</span>
+                  <span class="role__title">Maintenance Engineer (Electrical)</span>
+                  <span class="role__meta-row"><span class="role__dept">Engineering</span><span class="role__meta">Sonitpur, Assam · Full-time</span></span>
+                  <span class="role__toggle" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="role__panel" id="role-4"><div class="role__panel-inner"><div class="role__content">
+                <p class="role__summary">Keep the brewhouse, utilities and packaging lines running — preventive maintenance, breakdowns and PLC troubleshooting.</p>
+                <ul class="role__points">
+                  <li>B.E. or diploma in electrical engineering</li>
+                  <li>Hands-on PLC and drives experience</li>
+                  <li>3+ years in process manufacturing</li>
+                </ul>
+                <a class="btn role__apply" href="#apply" data-apply="Maintenance Engineer (Electrical)" data-magnetic><span class="roll"><span class="roll__track"><span>Apply for this role</span><span aria-hidden="true">Apply for this role</span></span></span></a>
+              </div></div></div>
+            </article>
+
+            <article class="role" data-dept="logistics" data-title="Warehouse &amp; Dispatch Supervisor">
+              <h3>
+                <button class="role__head" type="button" aria-expanded="false" aria-controls="role-5">
+                  <span class="role__num">05</span>
+                  <span class="role__title">Warehouse &amp; Dispatch Supervisor</span>
+                  <span class="role__meta-row"><span class="role__dept">Logistics</span><span class="role__meta">Sonitpur, Assam · Full-time</span></span>
+                  <span class="role__toggle" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="role__panel" id="role-5"><div class="role__panel-inner"><div class="role__content">
+                <p class="role__summary">Run the bonded warehouse and dispatch under excise supervision — from pallet to truck.</p>
+                <ul class="role__points">
+                  <li>Graduate with warehouse or logistics experience</li>
+                  <li>Familiar with excise documentation</li>
+                  <li>Experience leading a team</li>
+                </ul>
+                <a class="btn role__apply" href="#apply" data-apply="Warehouse &amp; Dispatch Supervisor" data-magnetic><span class="roll"><span class="roll__track"><span>Apply for this role</span><span aria-hidden="true">Apply for this role</span></span></span></a>
+              </div></div></div>
+            </article>
+          </div>
+          <p class="roles__empty" data-roles-empty hidden>No open roles in this team right now — send us a general application below.</p>
+        </section>
+
+        <!-- Apply -->
+        <section class="apply page-wrap" id="apply" aria-labelledby="apply-title">
+          <div class="apply__grid">
+            <div class="apply__intro">
+              <h2 class="section-head__title" id="apply-title" data-split>Apply<br><span class="accent">now</span></h2>
+              <p class="apply__lead" data-reveal>Pick a role, or send a general application. We read every one.</p>
+            </div>
+
+            <div class="card apply__card" data-card data-form-card>
+              <div class="line-box"><i></i><i></i><i></i><i></i><b></b></div>
+              <form class="form" id="apply-form" novalidate>
+                <label class="field">
+                  <span class="field__label">Full name</span>
+                  <input class="field__control" name="name" autocomplete="name" required>
+                  <span class="field__error" data-error-for="name"></span>
+                </label>
+                <label class="field">
+                  <span class="field__label">Email</span>
+                  <input class="field__control" name="email" type="email" autocomplete="email" inputmode="email" required>
+                  <span class="field__error" data-error-for="email"></span>
+                </label>
+                <label class="field">
+                  <span class="field__label">Phone</span>
+                  <input class="field__control" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+                  <span class="field__error" data-error-for="phone"></span>
+                </label>
+                <label class="field">
+                  <span class="field__label">Role</span>
+                  <select class="field__control" name="role" required data-role-select>
+                    <option value="General application">General application</option>
+                  </select>
+                  <span class="field__error" data-error-for="role"></span>
+                </label>
+                <label class="field form__full">
+                  <span class="field__label">LinkedIn or portfolio <span class="opt">(optional)</span></span>
+                  <input class="field__control" name="link" type="url" data-validate="url" inputmode="url" placeholder="https://">
+                  <span class="field__error" data-error-for="link"></span>
+                </label>
+                <div class="field form__full">
+                  <span class="field__label" id="cv-label">CV</span>
+                  <div class="dropzone">
+                    <span class="dropzone__icon" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 11V2M8 2L4.5 5.5M8 2l3.5 3.5M2.5 10.5v3h11v-3" stroke="currentColor" stroke-width="1.3"/></svg>
+                    </span>
+                    <span class="dropzone__text" data-file-name><b>Choose a file</b> or drag it here<span class="dropzone__hint">PDF or Word, up to 5 MB</span></span>
+                    <input name="cv" type="file" accept=".pdf,.doc,.docx" aria-labelledby="cv-label" required>
+                  </div>
+                  <span class="field__error" data-error-for="cv"></span>
+                </div>
+                <label class="field form__full">
+                  <span class="field__label">Anything you’d like us to know <span class="opt">(optional)</span></span>
+                  <textarea class="field__control" name="note" rows="5"></textarea>
+                </label>
+                <div class="form__full">
+                  <label class="check"><input type="checkbox" name="consent" required><span class="check__box" aria-hidden="true"></span>I agree to Sunit Breweries storing my details to process this application.</label>
+                  <span class="field__error" data-error-for="consent"></span>
+                </div>
+                <div class="form__actions form__full">
+                  <p class="form__note">Fields without “optional” are required.</p>
+                  <button class="btn btn--lg" type="submit" data-magnetic><span class="roll"><span class="roll__track"><span>Submit application</span><span aria-hidden="true">Submit application</span></span></span></button>
+                </div>
+              </form>
+
+              <div class="form-success" data-success hidden>
+                <svg class="form-success__icon" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="1.4"/><path d="M20 33l8 8 16-17" stroke="currentColor" stroke-width="1.8"/></svg>
+                <h3 class="form-success__title" tabindex="-1">Application received</h3>
+                <p class="form-success__body">Thanks, <span data-out="name"></span>. We’ll review your application for <span data-out="role"></span> and get back to you by email.</p>
+                <button class="form-success__reset" type="button" data-form-reset>Submit another application</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- 11 — Footer -->
+      <footer class="footer" aria-labelledby="footer-title">
+        <h2 class="visually-hidden" id="footer-title">Sunit Breweries</h2>
+        <div class="footer__panel">
+          <div class="line-box"><i></i><i></i><i></i><i></i><b></b></div>
+          <nav class="footer__col" aria-labelledby="footer-overview">
+            <h2 id="footer-overview">Overview</h2>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#doje">DOJE</a></li>
+              <li><a href="contract-manufacturing.html">Contract Manufacturing</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </nav>
+          <nav class="footer__col" aria-labelledby="footer-socials">
+            <h2 id="footer-socials">Socials</h2>
+            <ul>
+              <li><a href="#">[Instagram]</a></li>
+              <li><a href="#">[LinkedIn]</a></li>
+              <li><a href="#">[Snapchat]</a></li>
+              <li><a href="#">[Facebook]</a></li>
+              <li><a href="#">[Email]</a></li>
+            </ul>
+          </nav>
+          <div class="footer__map">
+            <iframe title="Map showing Sunit Breweries, Sonitpur, Assam" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=Sunit+Breweries+Pvt+Ltd,+Sonitpur,+Assam&amp;z=11&amp;output=embed"></iframe>
+          </div>
+        </div>
+        <div class="footer__brand">
+          <div class="footer__glow" aria-hidden="true"><img src="assets/img/footer/footer-gradient.svg" alt="" width="1728" height="361" loading="lazy"></div>
+          <p class="footer__wordmark" aria-hidden="true" data-wordmark>Sunit Breweries</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js" defer></script>
+  <script src="js/agegate.js" defer></script>
+  <script src="js/utils/motion.js" defer></script>
+  <script src="js/utils/split.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/forms.js" defer></script>
+  <script src="js/pages.js" defer></script>
+  <script src="js/careers.js" defer></script>
+</body>
+</html>

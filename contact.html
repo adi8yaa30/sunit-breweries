@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Sunit Breweries</title>
+  <meta name="description" content="Contact Sunit Breweries about contract manufacturing, DOJE, careers or media. Registered office in Guwahati; brewery in Sonitpur, Assam.">
+  <meta name="theme-color" content="#F5F1E9">
+
+  <script>
+    (function (d) {
+      var h = d.documentElement;
+      h.classList.add("js-ready");
+      // Age gate: show unless verified this session, or remembered (not expired).
+      var ageOk = false;
+      try {
+        ageOk = !!sessionStorage.getItem("sb-age-ok") || +(localStorage.getItem("sb-age-ok") || 0) > Date.now();
+      } catch (e) {}
+      if (!ageOk) h.classList.add("show-agegate");
+      setTimeout(function () {
+        if (!window.__brewBooted) h.classList.remove("js-ready");
+        if (!window.__ageGateReady) h.classList.remove("show-agegate");
+      }, 4000);
+    })(document);
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Habibi&family=Instrument+Sans:wght@400;500;600&display=swap">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/agegate.css">
+</head>
+<body class="page-contact">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Age gate (shown until legal drinking age is confirmed) -->
+  <div class="agegate" role="dialog" aria-modal="true" aria-labelledby="ag-title" aria-describedby="ag-desc">
+    <header class="agegate__top" data-ag>
+      <span class="agegate__tag" aria-hidden="true">21+</span>
+    </header>
+
+    <div class="agegate__body" data-ag>
+      <p class="agegate__eyebrow"><span class="dot" aria-hidden="true"></span>Age verification</p>
+      <h2 class="agegate__title" id="ag-title" tabindex="-1"><span class="gold-soft">ARE YOU OF</span><br>LEGAL DRINKING AGE?</h2>
+
+      <div class="agegate__panel" data-ag-panel="ask">
+        <p class="agegate__desc" id="ag-desc">Enter your date of birth. You must be 21 or older to enter this site.</p>
+        <form class="agegate__form" data-ag-form novalidate>
+          <fieldset class="agegate__dob">
+            <legend class="visually-hidden">Date of birth</legend>
+            <label class="agegate__field">
+              <span class="agegate__label">Day</span>
+              <input class="agegate__input" name="day" inputmode="numeric" autocomplete="bday-day" placeholder="DD" maxlength="2" pattern="[0-9]*" required>
+            </label>
+            <span class="agegate__sep" aria-hidden="true">/</span>
+            <label class="agegate__field">
+              <span class="agegate__label">Month</span>
+              <input class="agegate__input" name="month" inputmode="numeric" autocomplete="bday-month" placeholder="MM" maxlength="2" pattern="[0-9]*" required>
+            </label>
+            <span class="agegate__sep" aria-hidden="true">/</span>
+            <label class="agegate__field agegate__field--year">
+              <span class="agegate__label">Year</span>
+              <input class="agegate__input" name="year" inputmode="numeric" autocomplete="bday-year" placeholder="YYYY" maxlength="4" pattern="[0-9]*" required>
+            </label>
+          </fieldset>
+          <button class="btn btn--lg agegate__submit" type="submit" data-magnetic><span class="roll"><span class="roll__track"><span>Enter</span><span aria-hidden="true">Enter</span></span></span></button>
+        </form>
+        <p class="agegate__error" data-ag-error role="alert" aria-live="assertive"></p>
+        <label class="agegate__remember"><input type="checkbox"><span class="agegate__box" aria-hidden="true"></span>Remember me on this device for 30 days</label>
+      </div>
+
+      <div class="agegate__panel" data-ag-panel="denied" hidden>
+        <p class="agegate__desc" role="status">Sorry — you need to be of legal drinking age to visit Sunit Breweries.</p>
+        <button class="agegate__back" type="button" data-ag-back>I made a mistake — go back</button>
+      </div>
+    </div>
+
+
+    <div class="agegate__brand" data-ag aria-hidden="true">
+      <div class="agegate__glow"><img src="assets/img/footer/footer-gradient.svg" alt="" width="1728" height="361"></div>
+      <p class="agegate__wordmark">Sunit Breweries</p>
+    </div>
+  </div>
+
+
+  <!-- Navigation -->
+  <header class="nav" data-nav>
+    <div class="container nav__inner" data-reveal>
+      <a class="nav__logo" href="index.html" aria-label="Sunit Breweries — home"><span>Sunit</span><span>Breweries</span></a>
+
+      <div class="nav__right">
+        <nav aria-label="Primary">
+          <ul class="nav__links">
+            <li><a class="nav__link" href="index.html"><span class="roll"><span class="roll__track"><span>Home</span><span aria-hidden="true">Home</span></span></span></a></li>
+            <li><a class="nav__link" href="index.html#about"><span class="roll"><span class="roll__track"><span>About Us</span><span aria-hidden="true">About Us</span></span></span></a></li>
+            <li><a class="nav__link" href="index.html#doje"><span class="roll"><span class="roll__track"><span>DOJE</span><span aria-hidden="true">DOJE</span></span></span></a></li>
+            <li class="nav__dropdown" data-dropdown>
+              <button class="nav__link" type="button" aria-expanded="false" aria-controls="cm-menu">
+                <span class="roll"><span class="roll__track"><span>Contract Manufacturing</span><span aria-hidden="true">Contract Manufacturing</span></span></span>
+                <svg class="nav__chev" viewBox="0 0 11 7" aria-hidden="true"><path d="M1 1l4.5 4.5L10 1" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+              </button>
+              <ul class="nav__menu" id="cm-menu">
+                <li><a href="contract-manufacturing.html">All partners <small>Overview</small></a></li>
+                <li><a href="contract-manufacturing.html#devans">DeVans Breweries <small>01</small></a></li>
+                <li><a href="contract-manufacturing.html#sona">Sona Beverages <small>02</small></a></li>
+                <li><a href="contract-manufacturing.html#ubl">United Breweries <small>03</small></a></li>
+              </ul>
+            </li>
+            <li><a class="nav__link" href="careers.html"><span class="roll"><span class="roll__track"><span>Careers</span><span aria-hidden="true">Careers</span></span></span></a></li>
+            <li><a class="nav__link" href="contact.html" aria-current="page"><span class="roll"><span class="roll__track"><span>Contact Us</span><span aria-hidden="true">Contact Us</span></span></span></a></li>
+          </ul>
+        </nav>
+        <a class="btn btn--solid" href="contact.html?topic=partnership" data-magnetic><span class="roll"><span class="roll__track"><span>Partner With Us</span><span aria-hidden="true">Partner With Us</span></span></span></a>
+        <button class="nav__burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+    <ul class="mobile-menu__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#doje">DOJE</a></li>
+      <li><a href="contract-manufacturing.html">Contract Manufacturing</a>
+        <ul class="sub">
+          <li><a href="contract-manufacturing.html#devans">DeVans Breweries</a></li>
+          <li><a href="contract-manufacturing.html#sona">Sona Beverages</a></li>
+          <li><a href="contract-manufacturing.html#ubl">United Breweries</a></li>
+        </ul>
+      </li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <a class="btn btn--solid" href="contact.html?topic=partnership">Partner With Us</a>
+  </nav>
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main id="main">
+
+        <header class="page-hero">
+          <h1 class="page-hero__title display" data-split>HAVE A BRAND?<br><span class="accent">WE HAVE THE LINES.</span></h1>
+          <p class="page-hero__aside" data-reveal>Tell us what you need brewed and we’ll tell you when it ships.</p>
+        </header>
+
+        <!-- PLACEHOLDER IMAGERY — to use a real photo, replace the <div class="ph">…</div> inside .media__inner with <img src="assets/img/…" alt="…" loading="lazy">. Sizes on each label are 2× display size. -->
+        <figure class="media media--band" data-media>
+            <div class="media__inner">
+              <div class="ph" role="img" aria-label="Image placeholder: The Sunit plant, Sonitpur — exterior, golden hour">
+                <div class="ph__label"><svg class="ph__icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="3" y="8" width="28" height="20" rx="3" stroke="currentColor" stroke-width="1.3"/><path d="M12 8l2.2-3.5h5.6L22 8" stroke="currentColor" stroke-width="1.3"/><circle cx="17" cy="18" r="5.5" stroke="currentColor" stroke-width="1.3"/></svg><span class="ph__eyebrow"><span class="dot" aria-hidden="true"></span>Image placeholder</span><span class="ph__title">The Sunit plant, Sonitpur — exterior, golden hour</span><span class="ph__spec">21:9 · 2380 × 1020 px</span></div>
+              </div>
+            </div>
+          </figure>
+
+        <section class="contact page-wrap" aria-labelledby="contact-title">
+          <div class="contact__grid">
+
+            <div class="card contact__form-card" data-card data-form-card>
+              <div class="line-box"><i></i><i></i><i></i><i></i><b></b></div>
+              <div class="section-head">
+                <h2 class="section-head__title" id="contact-title" data-split>Send us<br><span class="accent">a message</span></h2>
+              </div>
+
+              <form class="form" id="contact-form" novalidate>
+                <fieldset class="chips form__full">
+                  <legend>What’s it about?</legend>
+                  <label class="chip"><input type="radio" name="topic" value="Contract manufacturing" required><span>Contract manufacturing</span></label>
+                  <label class="chip"><input type="radio" name="topic" value="DOJE"><span>DOJE</span></label>
+                  <label class="chip"><input type="radio" name="topic" value="Careers"><span>Careers</span></label>
+                  <label class="chip"><input type="radio" name="topic" value="Media"><span>Media</span></label>
+                  <label class="chip"><input type="radio" name="topic" value="Something else"><span>Something else</span></label>
+                  <span class="field__error form__full" data-error-for="topic"></span>
+                </fieldset>
+                <label class="field">
+                  <span class="field__label">Name</span>
+                  <input class="field__control" name="name" autocomplete="name" required>
+                  <span class="field__error" data-error-for="name"></span>
+                </label>
+                <label class="field">
+                  <span class="field__label">Company <span class="opt">(optional)</span></span>
+                  <input class="field__control" name="company" autocomplete="organization">
+                </label>
+                <label class="field">
+                  <span class="field__label">Email</span>
+                  <input class="field__control" name="email" type="email" autocomplete="email" inputmode="email" required>
+                  <span class="field__error" data-error-for="email"></span>
+                </label>
+                <label class="field">
+                  <span class="field__label">Phone <span class="opt">(optional)</span></span>
+                  <input class="field__control" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+                  <span class="field__error" data-error-for="phone"></span>
+                </label>
+                <label class="field form__full">
+                  <span class="field__label">Message</span>
+                  <textarea class="field__control" name="message" rows="6" required placeholder="Brand, volumes, formats (650ml bottle / 500ml can), timelines…"></textarea>
+                  <span class="field__error" data-error-for="message"></span>
+                </label>
+                <div class="form__full">
+                  <label class="check"><input type="checkbox" name="consent" required><span class="check__box" aria-hidden="true"></span>I agree to Sunit Breweries using these details to reply to my enquiry.</label>
+                  <span class="field__error" data-error-for="consent"></span>
+                </div>
+                <div class="form__actions form__full">
+                  <p class="form__note">Fields without “optional” are required.</p>
+                  <button class="btn btn--lg" type="submit" data-magnetic><span class="roll"><span class="roll__track"><span>Send message</span><span aria-hidden="true">Send message</span></span></span></button>
+                </div>
+              </form>
+
+              <div class="form-success" data-success hidden>
+                <svg class="form-success__icon" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="1.4"/><path d="M20 33l8 8 16-17" stroke="currentColor" stroke-width="1.8"/></svg>
+                <h3 class="form-success__title" tabindex="-1">Message sent</h3>
+                <p class="form-success__body">Thanks, <span data-out="name"></span>. We’ll get back to you at <span data-out="email"></span>.</p>
+                <button class="form-success__reset" type="button" data-form-reset>Send another message</button>
+              </div>
+            </div>
+
+            <div class="contact__aside">
+              <article class="card info-card" data-card>
+                <div class="line-box"><i></i><i></i><i></i><i></i><b></b></div>
+                <span class="dot card__dot" aria-hidden="true"></span>
+                <p class="card__eyebrow">Registered office</p>
+                <h3 class="card__title">Guwahati</h3>
+                <address>Tribeni Commercial Complex, 3rd Floor<br>A-21 GS Road, Ulubari<br>Guwahati, Kamrup, Assam 781007</address>
+              </article>
+              <article class="card info-card" data-card>
+                <div class="line-box"><i></i><i></i><i></i><i></i><b></b></div>
+                <span class="dot card__dot" aria-hidden="true"></span>
+                <p class="card__eyebrow">Brewery</p>
+                <h3 class="card__title">Sonitpur</h3>
+                <address>Sessa T.E. No. 2, Sonitpur<br>Assam 784101 (near Tezpur)</address>
+              </article>
+              <!-- PLACEHOLDER CONTACT DETAILS — replace the bracketed values and hrefs. -->
+              <article class="card info-card" data-card>
+                <div class="line-box"><i></i><i></i><i></i><i></i><b></b></div>
+                <span class="dot card__dot" aria-hidden="true"></span>
+                <p class="card__eyebrow">Direct</p>
+                <h3 class="card__title">Talk to us</h3>
+                <ul class="info-list">
+                  <li><small>Email</small><a href="#">[email address]</a></li>
+                  <li><small>Phone</small><a href="#">[phone number]</a></li>
+                  <li><small>Partnerships</small><a href="#">[partnerships email]</a></li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="contact__visit">
+            <figure class="media" data-media>
+            <div class="media__inner">
+              <div class="ph" role="img" aria-label="Image placeholder: Plant entrance and visitor reception">
+                <div class="ph__label"><svg class="ph__icon" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="3" y="8" width="28" height="20" rx="3" stroke="currentColor" stroke-width="1.3"/><path d="M12 8l2.2-3.5h5.6L22 8" stroke="currentColor" stroke-width="1.3"/><circle cx="17" cy="18" r="5.5" stroke="currentColor" stroke-width="1.3"/></svg><span class="ph__eyebrow"><span class="dot" aria-hidden="true"></span>Image placeholder</span><span class="ph__title">Plant entrance and visitor reception</span><span class="ph__spec">3:4 · 880 × 920 px</span></div>
+              </div>
+            </div>
+          </figure>
+            <div class="contact__map" data-map>
+              <iframe title="Map showing Sunit Breweries, Sonitpur, Assam" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                      src="https://www.google.com/maps?q=Sunit+Breweries+Pvt+Ltd,+Sonitpur,+Assam&amp;z=10&amp;output=embed"></iframe>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- 11 — Footer -->
+      <footer class="footer" aria-labelledby="footer-title">
+        <h2 class="visually-hidden" id="footer-title">Sunit Breweries</h2>
+        <div class="footer__panel">
+          <div class="line-box"><i></i><i></i><i></i><i></i><b></b></div>
+          <nav class="footer__col" aria-labelledby="footer-overview">
+            <h2 id="footer-overview">Overview</h2>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#doje">DOJE</a></li>
+              <li><a href="contract-manufacturing.html">Contract Manufacturing</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </nav>
+          <nav class="footer__col" aria-labelledby="footer-socials">
+            <h2 id="footer-socials">Socials</h2>
+            <ul>
+              <li><a href="#">[Instagram]</a></li>
+              <li><a href="#">[LinkedIn]</a></li>
+              <li><a href="#">[Snapchat]</a></li>
+              <li><a href="#">[Facebook]</a></li>
+              <li><a href="#">[Email]</a></li>
+            </ul>
+          </nav>
+          <div class="footer__map">
+            <iframe title="Map showing Sunit Breweries, Sonitpur, Assam" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=Sunit+Breweries+Pvt+Ltd,+Sonitpur,+Assam&amp;z=11&amp;output=embed"></iframe>
+          </div>
+        </div>
+        <div class="footer__brand">
+          <div class="footer__glow" aria-hidden="true"><img src="assets/img/footer/footer-gradient.svg" alt="" width="1728" height="361" loading="lazy"></div>
+          <p class="footer__wordmark" aria-hidden="true" data-wordmark>Sunit Breweries</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js" defer></script>
+  <script src="js/agegate.js" defer></script>
+  <script src="js/utils/motion.js" defer></script>
+  <script src="js/utils/split.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/forms.js" defer></script>
+  <script src="js/pages.js" defer></script>
+  <script src="js/contact.js" defer></script>
+</body>
+</html>

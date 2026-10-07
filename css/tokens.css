@@ -1,0 +1,50 @@
+:root {
+  /* Colour */
+  --bg:          #F5F1E9;
+  --accent:      #B87920;
+  --accent-soft: #CDA366; /* button + metric card fill, light gold words (sampled from Figma) */
+  --ink:         #111111;
+  --ink-muted:   #5A544C;
+  --line:        rgba(17, 17, 17, 0.18);
+  --line-strong: rgba(17, 17, 17, 0.6);
+  --line-gold:   rgba(184, 121, 32, 0.45);
+  --line-gold-strong: rgba(184, 121, 32, 0.8);
+  --error:       #A63D2A;
+
+  /* Brand panels (sampled from partner logos) */
+  --brand-devans: #005AAB;
+  --brand-ubl:    #412986;
+  --brand-simba:  #E72333;
+
+  /* Type */
+  --font:       "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Habibi", Georgia, "Times New Roman", serif;
+
+  /* Fluid type scale — max values match the 1440px Figma frames */
+  --fs-hero:     clamp(2.5rem, 1.2rem + 4.2vw, 3.6rem);   /* 58 */
+  --fs-display:  clamp(2.6rem, 1.2rem + 4.4vw, 4.75rem);  /* 76 */
+  --fs-h1-cm:    clamp(2.6rem, 1rem + 5.2vw, 5.25rem);    /* 84 */
+  --fs-h2:       clamp(2rem, 1.1rem + 2.9vw, 3.3rem);     /* 53 */
+  --fs-h3:       clamp(1.6rem, 1.05rem + 1.8vw, 2.5rem);  /* 40 */
+  --fs-h4:       clamp(1.4rem, 1.05rem + 1.1vw, 2.15rem); /* 34 */
+  --fs-title:    clamp(1.3rem, 1.05rem + 0.8vw, 1.95rem); /* 31 */
+  --fs-lead:     clamp(1.15rem, 0.95rem + 0.7vw, 1.75rem);/* 28 */
+  --fs-body-lg:  clamp(1.05rem, 0.95rem + 0.35vw, 1.4rem);/* 22 */
+  --fs-body:     clamp(1rem, 0.85rem + 0.4vw, 1.2rem);    /* 19 */
+  --fs-small:    0.875rem;                                /* 14 */
+  --fs-nav:      1.0625rem;                               /* 17 */
+
+  --lh-display: 0.98;
+  --tracking-display: -0.02em;
+
+  /* Layout */
+  --radius:   12px;
+  --gutter:   clamp(16px, 4vw, 64px);
+  --max-w:    1440px;
+  --nav-h:    76px;
+
+  /* Motion (mirrored in js/utils/motion.js) */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-micro: 0.6s;
+  --dur-macro: 1.2s;
+}
